@@ -23,15 +23,13 @@ private:
 
 public:
     // constructors / destructors
-    ChatBot();                     // constructor WITHOUT memory allocation
-    ChatBot(std::string filename); // constructor WITH memory allocation
-    ~ChatBot();
-
-    //// STUDENT CODE
-    ////
-
-    ////
-    //// EOF STUDENT CODE
+    ChatBot();                                // constructor WITHOUT memory allocation
+    ChatBot(std::string filename);            // constructor WITH memory allocation
+    ~ChatBot();                               // destructor
+    ChatBot(const ChatBot& other);            // copy constructor
+    ChatBot& operator=(const ChatBot& other); // copy assignment operator
+    ChatBot(ChatBot&& other);                 // move constructor
+    ChatBot& operator=(ChatBot&& other);      // move assignment operator
 
     // getters / setters
     void SetCurrentNode(GraphNode *node);
