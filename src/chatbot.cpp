@@ -71,7 +71,7 @@ ChatBot& ChatBot::operator=(const ChatBot& other) {
   std::cout << "ChatBot Copy Assignment Operator...";
   
   if (&other != this) {
-    _image = other._image;
+    _image = new wxBitmap(*other._image);
     _chatLogic = other._chatLogic;
     _chatLogic->SetChatbotHandle(this);
     _rootNode = other._rootNode;
@@ -88,7 +88,7 @@ ChatBot::ChatBot(ChatBot&& other) {
   
   std::cout << "ChatBot Move Constructor...";
   
-  _image = new wxBitmap(*other._image);
+  _image = other._image;
   _chatLogic = other._chatLogic;
   _chatLogic->SetChatbotHandle(this);
   _rootNode = other._rootNode;
